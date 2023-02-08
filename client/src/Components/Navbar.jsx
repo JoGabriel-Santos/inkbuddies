@@ -8,10 +8,10 @@ function Navbar() {
 
             <nav className="main-navigation">
                 <ul className="main-navigation-list">
-                    <li><a className="main-navigation-link" href="#">Home</a></li>
-                    <li><a className="main-navigation-link" href="#">Friends</a></li>
-                    <li><a className="main-navigation-link" href="#">Meet new pal</a></li>
-                    <li><a className="main-navigation-link" href="#">Drafts</a></li>
+                    <li><a className="main-navigation-link" href="/">Home</a></li>
+                    <li><a className="main-navigation-link" href="/friends">Friends</a></li>
+                    <li><a className="main-navigation-link" href="/newpal">Meet new pal</a></li>
+                    <li><a className="main-navigation-link" href="/drafts">Drafts</a></li>
 
                     <li><a className="main-navigation-link navigation-cta" href="#">My profile</a></li>
                 </ul>
