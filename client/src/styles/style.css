@@ -1,0 +1,135 @@
+/* -----Header ----- */
+
+.header {
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.45) 0 0 10px 0;
+    backdrop-filter: blur(10px);
+    background-color: rgba(253, 242, 233, 0.45);
+    display: flex;
+    filter: alpha(opacity=80);
+    height: 8rem;
+    justify-content: space-between;
+    padding: 0 4.8rem;
+    position: fixed;
+    text-transform: uppercase;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.logo {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.main-navigation-list {
+    align-items: center;
+    display: flex;
+    gap: 4.8rem;
+    list-style: none;
+}
+
+.main-navigation-link:link,
+.main-navigation-link:visited {
+    border-radius: 5px;
+    color: #333;
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.main-navigation-link:active,
+.main-navigation-link:hover {
+    color: #cf711f;
+}
+
+.main-navigation-link.navigation-cta:link,
+.main-navigation-link.navigation-cta:visited {
+    background-color: #e67e22;
+    border-radius: 9px;
+    color: #fff;
+    padding: 1.2rem 2.4rem;
+}
+
+.main-navigation-link.navigation-cta:active,
+.main-navigation-link.navigation-cta:hover {
+    background-color: #cf711f;
+}
+
+.button-navigation-mobile {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.icon-navigation-mobile {
+    color: #333;
+    height: 4.8rem;
+    width: 4.8rem;
+}
+
+.icon-navigation-mobile[name="close-outline"] {
+    display: none;
+}
+
+/* ----- Hero ----- */
+
+.section-hero {
+    background-color: #fdf2e9;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 4.8rem 0 9.6rem 0;
+}
+
+.hero {
+    align-items: center;
+    display: grid;
+    gap: 9.6rem;
+    grid-template-columns: 12fr 10fr;
+    margin: auto;
+    max-width: 130rem;
+    padding: 0 3.2rem;
+}
+
+.hero-description {
+    font-size: 2.4rem;
+    line-height: 1.6;
+    margin-bottom: 4.8rem;
+}
+
+.hero-image {
+    border-radius: 15px;
+    width: 400px;
+}
+
+.hero-image-box {
+    display: flex;
+    justify-content: center;
+}
+
+.arrow-down {
+    color: #cf711f;
+    display: flex;
+    font-size: 3.8rem;
+    margin: 0 auto;
+    transition: all 0.3s;
+}
+
+.arrow-down a {
+    border-radius: 8px;
+    padding-top: 2px;
+}
+
+.arrow-down i {
+    color: #cf711f;
+    padding: 0.8rem;
+}
+
+.arrow-down:hover {
+    cursor: pointer;
+    transform: translateY(0.4rem);
+}
