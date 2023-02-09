@@ -7,7 +7,7 @@ function Home() {
             <div className="hero">
                 <div className="hero-text-box">
                     <h1 className="heading-primary">
-                        Speak your mind – one letter at a time!
+                        Speak your mind – <br/> one letter at a time!
                     </h1>
 
                     <p className="hero-description">

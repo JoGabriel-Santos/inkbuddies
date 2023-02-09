@@ -133,3 +133,89 @@
     cursor: pointer;
     transform: translateY(0.4rem);
 }
+
+/* ----- Friends ----- */
+
+.section-friends {
+    background-color: #fdf2e9;
+    display: grid;
+    grid-template-areas:
+    'FR ME';
+    grid-template-columns: 400px auto;
+    height: 100vh;
+    padding: 9.6rem 0 9.6rem 0;
+}
+
+.all-friends {
+    border: #e67e22 1px solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    grid-area: FR;
+    margin-left: 14px;
+    padding: 2rem;
+}
+
+.country-and-birth {
+    display: flex;
+    padding-top: 15px;
+}
+
+.country {
+    display: flex;
+    padding-right: 15px;
+}
+
+.birth {
+    display: flex;
+}
+
+.country i,
+.birth i {
+    font-size: 20px;
+}
+
+.friend {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5rem;
+}
+
+.friend-name {
+    font-size: 30px;
+}
+
+.friend-info--text {
+    font-size: 22px;
+}
+
+.friend-photo img {
+    border-radius: 100%;
+    width: 100px;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    grid-area: ME;
+    padding: 2.2rem 5rem 5rem 5rem;
+    overflow-y: scroll;
+}
+
+.message-card {
+    align-items: center;
+    border: #e67e22 1px solid;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    height: 350px;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.4s;
+    width: 300px;
+}
+
+.message-card:hover {
+    transform: translateY(-0.8rem);
+}

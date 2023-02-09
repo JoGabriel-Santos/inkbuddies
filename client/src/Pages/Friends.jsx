@@ -1,9 +1,49 @@
 import React from "react";
+import Message from "../Components/Message";
 
 function Friends() {
 
     return (
-        <h2>Friends</h2>
+        <section className="section-friends">
+            <div className="all-friends">
+                <h2>All friends</h2>
+            </div>
+
+            <div className="messages">
+                <div className="friend">
+                    <div className="friend-info">
+                        <h2 className="friend-name">Gabriello</h2>
+
+                        <div className="country-and-birth">
+                            <div className="country">
+                                <i className="bi bi-geo-alt-fill"></i>
+                                <h2 className="friend-info--text">Brazil</h2>
+                            </div>
+
+                            <div className="birth">
+                                <i className="bi bi-balloon-fill"></i>
+                                <h2 className="friend-info--text">Jan 20th (22)</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="friend-photo">
+                        <img src={ require("../util/profile-gabriellou.png") } alt=""/>
+                    </div>
+                </div>
+
+                <div className="container grid grid--3-cols margin-bottom-md">
+                    <Message/>
+                    <Message/>
+                    <Message/>
+                    <Message/>
+                    <Message/>
+                    <Message/>
+                    <Message/>
+                    <Message/>
+                </div>
+            </div>
+        </section>
     );
 }
 
