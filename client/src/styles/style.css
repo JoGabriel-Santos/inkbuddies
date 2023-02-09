@@ -155,7 +155,71 @@
     flex-direction: column;
     grid-area: FR;
     margin: 25px 0 25px 25px;
-    padding: 2rem;
+}
+
+.friends-header {
+    align-items: center;
+    background-color: #e67e22;
+    border-bottom: #ffffff 1px solid;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+}
+
+.filter {
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.friends-quantity {
+    align-items: center;
+    display: flex;
+    font-size: 14px;
+    gap: 10px;
+}
+
+.friends-quantity i {
+    font-size: 20px;
+}
+
+.friend-list {
+}
+
+.friend-card {
+    border-bottom: #e67e22 1px solid;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    transition: all 0.3s;
+}
+
+.friend-card:hover {
+    background-color: #e67e22;
+    color: white;
+}
+
+.friend-card--photo {
+    border-radius: 100%;
+    width: 55px;
+}
+
+.friend-card--user {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    width: 100%;
+}
+
+.friend-card--info h2 {
+    padding-bottom: 5px;
+}
+
+.friend-card--time {
+
 }
 
 .country-and-birth {
@@ -271,11 +335,12 @@
     border: #e67e22 2px solid;
     border-radius: 999px;
     bottom: 40px;
+    color: #555555;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 2.2rem;
     padding: 10px 20px;
     position: fixed;
-    right: 80px;
+    right: 65px;
     transition: all 0.5s;
     z-index: 999;
 }

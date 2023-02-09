@@ -1,4 +1,6 @@
 import React from "react";
+
+import Friend from "../Components/Friend";
 import Message from "../Components/Message";
 
 function Friends() {
@@ -6,7 +8,22 @@ function Friends() {
     return (
         <section className="section-friends">
             <div className="all-friends">
-                <h2>All friends</h2>
+                <div className="friends-header">
+                    <div className="friends-quantity">
+                        <i className="bi bi-people-fill"></i>
+                        <h2>Friends - 4</h2>
+                    </div>
+
+                    <i className="bi bi-funnel-fill filter"></i>
+                </div>
+
+                <div className="friend-list">
+                    <Friend/>
+                    <Friend/>
+                    <Friend/>
+                    <Friend/>
+                </div>
+
             </div>
 
             <div className="messages">
@@ -33,9 +50,6 @@ function Friends() {
                 </div>
 
                 <div className="container grid grid--3-cols margin-bottom-md">
-                    <Message/>
-                    <Message/>
-                    <Message/>
                     <Message/>
                     <Message/>
                     <Message/>
