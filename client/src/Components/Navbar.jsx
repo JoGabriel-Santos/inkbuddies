@@ -4,14 +4,14 @@ function Navbar() {
 
     return (
         <header className="header">
-            <h1 className="logo">InkBuddies</h1>
+            <a className="logo-link" href="/"><h1 className="logo">InkBuddies</h1></a>
 
             <nav className="main-navigation">
                 <ul className="main-navigation-list">
                     <li><a className="main-navigation-link" href="/">Home</a></li>
                     <li><a className="main-navigation-link" href="/friends">Friends</a></li>
                     <li><a className="main-navigation-link" href="/newpal">Meet new pal</a></li>
-                    <li><a className="main-navigation-link" href="/drafts">Drafts</a></li>
+                    <li><a className="main-navigation-link" href="/drafts">Stamps</a></li>
 
                     <li><a className="main-navigation-link navigation-cta" href="#">My profile</a></li>
                 </ul>
