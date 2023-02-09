@@ -14,7 +14,7 @@ function Friends() {
                         <h2>Friends - 4</h2>
                     </div>
 
-                    <i className="bi bi-funnel-fill filter"></i>
+                    <i className="bi bi-sort-down filter"></i>
                 </div>
 
                 <div className="friend-list">

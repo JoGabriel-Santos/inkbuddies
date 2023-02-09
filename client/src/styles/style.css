@@ -170,7 +170,7 @@
 
 .filter {
     cursor: pointer;
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .friends-quantity {
@@ -193,7 +193,7 @@
     display: flex;
     font-size: 1.5rem;
     padding: 10px 20px;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 .friend-card:hover {
