@@ -2,9 +2,10 @@ import React from "react";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import Navbar from "./Components/Navbar";
-import Home from "./Pages/Home";
-import Friends from "./Pages/Friends";
+import Authentication from "./pages/Authentication"
+import Navbar from "./components/Navbar";
+import Friends from "./pages/Friends";
+import Home from "./pages/Home";
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
             <BrowserRouter>
                 <Switch>
                     <Route path="/" exact component={ Home }/>
+                    <Route path="/signin" exact component={ Authentication }/>
+                    <Route path="/signup" exact component={ Authentication }/>
                     <Route path="/friends" exact component={ Friends }/>
                 </Switch>
             </BrowserRouter>

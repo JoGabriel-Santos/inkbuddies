@@ -1,7 +1,7 @@
 import React from "react";
 
-import Friend from "../Components/Friend";
-import Message from "../Components/Message";
+import Friend from "../components/Friend";
+import Message from "../components/Message";
 
 function Friends() {
 

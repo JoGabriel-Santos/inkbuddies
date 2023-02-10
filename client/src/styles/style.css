@@ -2,8 +2,10 @@
 
 .header {
     align-items: center;
+    backdrop-filter: blur(10px);
     box-shadow: rgba(100, 100, 111, 0.45) 0 0 10px 0;
     display: flex;
+    filter: alpha(opacity=80);
     height: 8rem;
     justify-content: space-between;
     padding: 0 4.8rem;
@@ -352,4 +354,88 @@
 
 .send-letter i {
     padding-right: 8px;
+}
+
+/* ----- CTA ----- */
+
+.section-cta {
+    background-color: #fdf2e9;
+    padding: 15rem 0 12.8rem;
+}
+
+.cta {
+    background-color: #e67e22;
+    background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+    border-radius: 11px;
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    overflow: hidden;
+}
+
+.cta *:focus {
+    box-shadow: 0 0 0 0.4rem rgba(253, 242, 233, 0.5);
+    outline: none;
+}
+
+.cta .heading-secondary {
+    color: #45260a;
+    margin-bottom: 3.2rem;
+}
+
+.cta-text-box {
+    color: #45260a;
+    padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+}
+
+.cta-text {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1.8;
+    margin-bottom: 4.8rem;
+}
+
+.cta-image-box {
+    background-image: url("../util/logo 2.png");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.cta-image-box--avatar {
+    background-image: url("../util/profile-gabriellou.png");
+
+    background-position: center;
+    background-size: cover;
+}
+
+.cta-form {
+    display: grid;
+    column-gap: 3.2rem;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2.4rem;
+}
+
+.cta-form label {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+}
+
+.cta-form input,
+.cta-form select {
+    background-color: #fdf2e9;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.8rem;
+    padding: 1.2rem;
+    width: 100%;
+}
+
+.cta-form input::placeholder {
+    color: #aaa;
 }
