@@ -56,7 +56,7 @@ function Authentication() {
 
         if (location.pathname === "/signin") {
 
-            // dispatch(signin(form, history))
+            dispatch(signin(form, history))
 
         } else {
 
@@ -147,4 +147,4 @@ function Authentication() {
     );
 }
 
-export default Authentication;
+export default React.memo(Authentication);

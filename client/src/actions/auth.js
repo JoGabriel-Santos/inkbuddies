@@ -6,11 +6,11 @@ export const signin = (formData, router) => async (dispatch) => {
     try {
         console.log(formData)
 
-        // const { data } = await api.signIn(formData)
+        const { data } = await api.signIn(formData)
 
-        // dispatch({ type: AUTH, data })
+        dispatch({ type: AUTH, data })
 
-        // router.push('/')
+        router.push('/')
 
     } catch (error) {
 
@@ -22,9 +22,9 @@ export const signup = (formData, router) => async (dispatch) => {
     try {
         const { data } = await api.signUp(formData)
 
-        // dispatch({ type: AUTH, data })
+        dispatch({ type: AUTH, data })
 
-        // router.push('/')
+        router.push('/')
 
     } catch (error) {
 
