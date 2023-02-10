@@ -35,7 +35,7 @@ function Navbar() {
                                 <li><a className="main-navigation-link" href="/newpal">Meet new pal</a></li>
                                 <li><a className="main-navigation-link" href="/drafts">Stamps</a></li>
 
-                                <li><a className="main-navigation-link navigation-cta" onClick={logout} href="#">Logout</a></li>
+                                <li><a className="main-navigation-link navigation-cta" onClick={ logout } href="#">Logout</a></li>
                             </ul>
                         </nav>
 
@@ -50,9 +50,9 @@ function Navbar() {
                     (
                         location.pathname === "/signup" ?
 
-                            <a className="main-navigation-link" href="/signin">Já possui uma conta?</a>
+                            <a className="main-navigation-link" href="/signin">Already have an account?</a>
                             :
-                            <a className="main-navigation-link" href="/signup">Ainda não possui uma conta?</a>
+                            <a className="main-navigation-link" href="/signup">Don't have an account yet?</a>
                     )
             }
 

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from 'react-router-dom';
+
+import FileBase from 'react-file-base64'
 
 import useInput from "../hooks/use-input";
 
@@ -15,6 +17,8 @@ function Authentication() {
     const dispatch = useDispatch();
     const history = useHistory();
     const location = useLocation();
+
+    const [profilePicture, setProfilePicture] = useState();
 
     let formIsValid = false;
 
@@ -52,7 +56,7 @@ function Authentication() {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        let form = { name: nameValue, email: emailValue, password: passwordValue };
+        let form = { name: nameValue, email: emailValue, password: passwordValue, profilePicture: profilePicture };
 
         if (location.pathname === "/signin") {
 
@@ -134,17 +138,32 @@ function Authentication() {
                                     : null
                             }
 
+                            {
+                                location.pathname === "/signup" ?
+                                    <div className="cta-form-name">
+                                        <label htmlFor="select-where">Upload profile picture</label>
+                                        <FileBase type="file" multiple={ false } onDone={ ({ base64 }) => setProfilePicture(base64) }/>
+                                    </div>
+
+                                    : null
+                            }
+
                             <button className="button button--form" type={ "submit" }>
                                 { location.pathname === "/signin" ? "Entrar" : "Cadastrar-se" }
                             </button>
                         </form>
                     </div>
 
-                    <div className="cta-image-box" role="img"></div>
+                    {
+                        location.pathname === "/signup" && profilePicture ?
+                            <div className="cta-image-box--avatar" style={ { backgroundImage: `url(${ profilePicture })` } }></div>
+                            :
+                            <div className="cta-image-box"></div>
+                    }
                 </div>
             </div>
         </section>
     );
 }
 
-export default React.memo(Authentication);
+export default Authentication;

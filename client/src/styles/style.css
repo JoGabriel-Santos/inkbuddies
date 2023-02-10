@@ -403,8 +403,6 @@
 }
 
 .cta-image-box--avatar {
-    background-image: url("../util/profile-gabriellou.png");
-
     background-position: center;
     background-size: cover;
 }
@@ -432,6 +430,7 @@
     color: inherit;
     font-family: inherit;
     font-size: 1.8rem;
+    height: 50px;
     padding: 1.2rem;
     width: 100%;
 }
