@@ -5,6 +5,17 @@ import UserModal from "../models/user.js";
 
 const secret = "secret";
 
+export const getUsers = async (require, response) => {
+    try {
+        const usersMessage = await UserModal.find()
+        response.status(200).json(usersMessage)
+
+    } catch (error) {
+
+        response.status(404).json({ message: error })
+    }
+}
+
 export const signin = async (require, response) => {
     const { name, password } = require.body;
 

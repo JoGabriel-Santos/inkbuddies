@@ -139,6 +139,59 @@
     transform: translateY(0.4rem);
 }
 
+/* ----- Users ----- */
+
+
+
+.section-user {
+    padding: 9.6rem 0;
+}
+
+.user {
+    border-radius: 12px;
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s;
+}
+
+.user:hover {
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-1.2rem);
+}
+
+.user-image {
+    object-fit: cover;
+    height: 30rem;
+    width: 100%;
+}
+
+.user-content {
+    height: 214px;
+    padding: 3.2rem;
+}
+
+.user-name {
+    color: #333;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 3.2rem;
+}
+
+.user-attributes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    list-style: none;
+}
+
+.user-attribute {
+    align-items: center;
+    display: flex;
+    font-size: 1.8rem;
+    gap: 1.5rem;
+}
+
 /* ----- Friends ----- */
 
 .section-friends {

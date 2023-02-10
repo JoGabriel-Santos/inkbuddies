@@ -144,6 +144,16 @@ strong {
     letter-spacing: -0.5px;
 }
 
+.subheading {
+    color: #cf711f;
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 1.6rem;
+    text-transform: uppercase;
+}
+
 .link:link,
 .link:visited {
     color: #e67e22;

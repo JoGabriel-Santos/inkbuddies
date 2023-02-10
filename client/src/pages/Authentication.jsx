@@ -7,7 +7,7 @@ import FileBase from 'react-file-base64'
 
 import useInput from "../hooks/use-input";
 
-import { signin, signup } from "../actions/auth";
+import { signin, signup } from "../actions/users";
 
 const isNotEmpty = (value) => value.trim() !== '';
 const isEmail = (value) => value.includes('@');

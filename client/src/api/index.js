@@ -12,5 +12,7 @@ API.interceptors.request.use((request) => {
     return request
 })
 
+export const fetchUsers = () => API.get(`/user`)
+
 export const signIn = (formData) => API.post('/user/signin', formData)
 export const signUp = (formData) => API.post('/user/signup', formData)
