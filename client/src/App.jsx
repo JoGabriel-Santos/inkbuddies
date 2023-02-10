@@ -11,8 +11,8 @@ function App() {
 
     return (
         <React.Fragment>
-            <Navbar/>
             <BrowserRouter>
+                <Navbar/>
                 <Switch>
                     <Route path="/" exact component={ Home }/>
                     <Route path="/signin" exact component={ Authentication }/>
