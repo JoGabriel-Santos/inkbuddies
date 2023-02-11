@@ -141,8 +141,6 @@
 
 /* ----- Users ----- */
 
-
-
 .section-user {
     padding: 9.6rem 0;
 }
@@ -239,9 +237,6 @@
     font-size: 20px;
 }
 
-.friend-list {
-}
-
 .friend-card {
     border-bottom: #e67e22 1px solid;
     cursor: pointer;
@@ -271,10 +266,6 @@
 
 .friend-card--info h2 {
     padding-bottom: 5px;
-}
-
-.friend-card--time {
-
 }
 
 .country-and-birth {
