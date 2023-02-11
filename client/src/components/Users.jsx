@@ -4,11 +4,11 @@ function Users(props) {
 
     return (
         <div className="users">
-            <div className="user">
+            <div className="user-info">
                 <img className="user-image" src={ props.userInfo.profilePicture } alt=""/>
 
                 <div className="user-content">
-                    <p className="user-name">{ props.userInfo.name }</p>
+                    <p className="user-username">{ props.userInfo.name }</p>
                 </div>
             </div>
         </div>

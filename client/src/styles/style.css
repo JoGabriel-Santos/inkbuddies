@@ -139,13 +139,89 @@
     transform: translateY(0.4rem);
 }
 
+/* ----- Profile ----- */
+
+.section-profile {
+    padding: 12rem 6rem;
+
+    margin: 0 auto;
+    max-width: 140rem;
+}
+
+.cta-profile {
+    border-radius: 11px;
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.2);
+    display: grid;
+    overflow: hidden;
+    padding: 2rem 2rem;
+}
+
+.file-input {
+    align-items: center;
+    background-color: #e6e6e6;
+    border-radius: 8px;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    display: flex !important;
+    height: 50px;
+    padding: 0.5em 1em;
+}
+
+.file-input:hover {
+    background-color: #d9d9d9;
+}
+
+.file-input input {
+    display: none;
+}
+
+.cta-gender {
+    align-items: center;
+    display: flex !important;
+    justify-content: space-between;
+}
+
+.cta-gender i {
+    font-size: 30px;
+}
+
+.checkbox-container {
+    display: flex;
+    margin: 0;
+}
+
+.cta-form-about {
+    grid-column: span 2;
+}
+
+.cta-form-about textarea {
+    border-radius: 8px;
+    color: inherit;
+    font-family: inherit;
+    font-size: 2.2rem;
+    height: 125px;
+    padding: 10px;
+    resize: none;
+    width: 100%;
+}
+
+#checkbox-group {
+    background-color: inherit;
+    border: 2px solid gray;
+    border-radius: 4px;
+    box-shadow: none;
+    display: flex;
+    width: 40px;
+}
+
 /* ----- Users ----- */
 
 .section-user {
     padding: 9.6rem 0;
 }
 
-.user {
+.user-info {
     border-radius: 12px;
     box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -153,7 +229,7 @@
     transition: all 0.4s;
 }
 
-.user:hover {
+.user-info:hover {
     box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.3);
     transform: translateY(-1.2rem);
 }
@@ -169,7 +245,7 @@
     padding: 3.2rem;
 }
 
-.user-name {
+.user-username {
     color: #333;
     font-size: 2.4rem;
     font-weight: 600;
@@ -269,6 +345,7 @@
 }
 
 .country-and-birth {
+    align-items: center;
     display: flex;
     padding-top: 15px;
 }
@@ -287,22 +364,22 @@
     font-size: 20px;
 }
 
-.friend {
+.user {
     align-items: center;
     display: flex;
     justify-content: space-between;
     padding-bottom: 5rem;
 }
 
-.friend-name {
+.user-name {
     font-size: 30px;
 }
 
-.friend-info--text {
+.user-info--text {
     font-size: 22px;
 }
 
-.friend-photo img {
+.user-photo img {
     border-radius: 100%;
     width: 100px;
 }
@@ -473,7 +550,7 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     color: inherit;
     font-family: inherit;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     height: 50px;
     padding: 1.2rem;
     width: 100%;

@@ -35,7 +35,7 @@ function Navbar() {
                                 <li><a className="main-navigation-link" href="/newpal">Meet new pal</a></li>
                                 <li><a className="main-navigation-link" href="/drafts">Stamps</a></li>
 
-                                <li><a className="main-navigation-link navigation-cta" onClick={ logout } href="#">Logout</a></li>
+                                <li><a className="main-navigation-link navigation-cta" href="/profile">Profile</a></li>
                             </ul>
                         </nav>
 

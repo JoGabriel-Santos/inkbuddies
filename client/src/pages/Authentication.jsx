@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from 'react-router-dom';
-
-import FileBase from 'react-file-base64'
 
 import useInput from "../hooks/use-input";
 
@@ -17,8 +15,6 @@ function Authentication() {
     const dispatch = useDispatch();
     const history = useHistory();
     const location = useLocation();
-
-    const [profilePicture, setProfilePicture] = useState();
 
     let formIsValid = false;
 
@@ -56,7 +52,7 @@ function Authentication() {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        let form = { name: nameValue, email: emailValue, password: passwordValue, profilePicture: profilePicture };
+        let form = { name: nameValue, email: emailValue, password: passwordValue };
 
         if (location.pathname === "/signin") {
 
@@ -88,7 +84,7 @@ function Authentication() {
 
                         <form className="cta-form" onSubmit={ (event) => submitHandler(event) }>
                             <div className="cta-form-name">
-                                <label htmlFor="full-name">Nome de usuário</label>
+                                <label htmlFor="full-name">Username</label>
                                 <input
                                     className={ `${ nameHasError && 'border-red' }` }
                                     onChange={ nameChangeHandler }
@@ -115,7 +111,7 @@ function Authentication() {
                             }
 
                             <div className="cta-form-email">
-                                <label htmlFor="password">Senha</label>
+                                <label htmlFor="password">Password</label>
                                 <input
                                     className={ `${ passwordHasError && 'border-red' }` }
                                     onChange={ passwordChangeHandler }
@@ -128,38 +124,23 @@ function Authentication() {
                             {
                                 location.pathname === "/signin" ?
                                     <div className="cta-form-select">
-                                        <label htmlFor="select-where">Deseja salvar suas credenciais?</label>
+                                        <label htmlFor="select-where">Do you want to save your credentials?</label>
                                         <select id="select-where" name="" required>
-                                            <option value="option-1">Sim</option>
-                                            <option value="option-2">Não</option>
+                                            <option value="option-1">Yes</option>
+                                            <option value="option-2">No</option>
                                         </select>
                                     </div>
 
                                     : null
                             }
 
-                            {
-                                location.pathname === "/signup" ?
-                                    <div className="cta-form-name">
-                                        <label htmlFor="select-where">Upload profile picture</label>
-                                        <FileBase type="file" multiple={ false } onDone={ ({ base64 }) => setProfilePicture(base64) }/>
-                                    </div>
-
-                                    : null
-                            }
-
                             <button className="button button--form" type={ "submit" }>
-                                { location.pathname === "/signin" ? "Entrar" : "Cadastrar-se" }
+                                { location.pathname === "/signin" ? "Signin" : "Signup" }
                             </button>
                         </form>
                     </div>
 
-                    {
-                        location.pathname === "/signup" && profilePicture ?
-                            <div className="cta-image-box--avatar" style={ { backgroundImage: `url(${ profilePicture })` } }></div>
-                            :
-                            <div className="cta-image-box"></div>
-                    }
+                    <div className="cta-image-box"></div>
                 </div>
             </div>
         </section>

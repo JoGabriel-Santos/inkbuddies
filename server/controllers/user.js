@@ -41,7 +41,7 @@ export const signin = async (require, response) => {
 };
 
 export const signup = async (require, response) => {
-    const { name, email, password, profilePicture } = require.body;
+    const { name, email, password } = require.body;
 
     try {
         const user = await UserModal.findOne({ email });
@@ -51,7 +51,7 @@ export const signup = async (require, response) => {
 
         const hashedPassword = await bcrypt.hash(password, 12);
 
-        const result = await UserModal.create({ name, email, password: hashedPassword, profilePicture });
+        const result = await UserModal.create({ name, email, password: hashedPassword });
 
         const token = jwt.sign({ email: result.email, id: result._id }, secret, { expiresIn: '1h' });
 

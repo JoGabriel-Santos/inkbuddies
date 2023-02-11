@@ -27,24 +27,24 @@ function Friends() {
             </div>
 
             <div className="messages">
-                <div className="friend">
-                    <div className="friend-info">
-                        <h2 className="friend-name">Gabriello</h2>
+                <div className="user">
+                    <div className="user--info">
+                        <h2 className="user-name">Gabriello</h2>
 
                         <div className="country-and-birth">
                             <div className="country">
                                 <i className="bi bi-geo-alt-fill"></i>
-                                <h2 className="friend-info--text">Brazil</h2>
+                                <h2 className="user-info--text">Brazil</h2>
                             </div>
 
                             <div className="birth">
                                 <i className="bi bi-balloon-fill"></i>
-                                <h2 className="friend-info--text">Jan 20th (22)</h2>
+                                <h2 className="user-info--text">Jan 20th (22)</h2>
                             </div>
                         </div>
                     </div>
 
-                    <div className="friend-photo">
+                    <div className="user-photo">
                         <img src={ require("../util/profile-gabriellou.png") } alt=""/>
                     </div>
                 </div>
