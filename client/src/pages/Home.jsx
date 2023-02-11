@@ -14,7 +14,9 @@ function Home() {
 
     let allUsers = null
 
-    if (users.authData !== null) {
+    console.log(users)
+
+    if (users !== null) {
 
         allUsers = users.filter(user => userLogged.result.email !== user.email)
     }
@@ -67,13 +69,13 @@ function Home() {
 
                             <div className="container grid grid--3-cols margin-bottom-md">
                                 {
-                                    users.authData || users.authData === null ? null :
-                                        allUsers?.map((userInfo, key) => (
 
-                                            <div key={ key }>
-                                                <Users userInfo={ userInfo } currentUserEmail={ userLogged.result.email }/>
-                                            </div>
-                                        ))
+                                    allUsers?.map((userInfo, key) => (
+
+                                        <div key={ key }>
+                                            <Users userInfo={ userInfo } currentUserEmail={ userLogged.result.email }/>
+                                        </div>
+                                    ))
                                 }
                             </div>
                         </section>
