@@ -165,7 +165,7 @@
     cursor: pointer;
     display: flex !important;
     height: 50px;
-    padding: 0.5em 1em;
+    padding: 1.2rem;
 }
 
 .file-input:hover {
@@ -174,21 +174,6 @@
 
 .file-input input {
     display: none;
-}
-
-.cta-gender {
-    align-items: center;
-    display: flex !important;
-    justify-content: space-between;
-}
-
-.cta-gender i {
-    font-size: 30px;
-}
-
-.checkbox-container {
-    display: flex;
-    margin: 0;
 }
 
 .cta-form-about {
@@ -200,6 +185,7 @@
     color: inherit;
     font-family: inherit;
     font-size: 2.2rem;
+    font-weight: 500;
     height: 125px;
     padding: 10px;
     resize: none;
@@ -344,7 +330,7 @@
     padding-bottom: 5px;
 }
 
-.country-and-birth {
+.additional-info {
     align-items: center;
     display: flex;
     padding-top: 15px;
@@ -352,16 +338,23 @@
 
 .country {
     display: flex;
-    padding-right: 15px;
 }
 
-.birth {
+.birth,
+.gender {
     display: flex;
+    padding-left: 15px;
+}
+
+.gender i{
+    -webkit-text-stroke: 1px;
 }
 
 .country i,
-.birth i {
+.birth i,
+.gender i {
     font-size: 20px;
+    padding-right: 5px;
 }
 
 .user {
@@ -536,8 +529,9 @@
 }
 
 .cta-form label {
+    color: inherit;
     display: block;
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 500;
     margin-bottom: 1.2rem;
 }
@@ -551,6 +545,7 @@
     color: inherit;
     font-family: inherit;
     font-size: 2.2rem;
+    font-weight: 500;
     height: 50px;
     padding: 1.2rem;
     width: 100%;

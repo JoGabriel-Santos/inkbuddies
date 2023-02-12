@@ -124,7 +124,7 @@ function Authentication() {
                             {
                                 location.pathname === "/signin" ?
                                     <div className="cta-form-select">
-                                        <label htmlFor="select-where">Do you want to save your credentials?</label>
+                                        <label htmlFor="select-where">Save your credentials?</label>
                                         <select id="select-where" name="" required>
                                             <option value="option-1">Yes</option>
                                             <option value="option-2">No</option>

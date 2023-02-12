@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { updateUser } from "../actions/users";
 
 import { months } from "../helpers/months";
 
 function Profile() {
+    const dispatch = useDispatch();
+    const history = useHistory();
+
     const userLogged = JSON.parse(localStorage.getItem("profile"));
 
     const [userInfo, setUserInfo] = useState(
@@ -15,7 +21,12 @@ function Profile() {
         });
 
     const [userBirthday, setUserBirthday] = useState({ year: '', month: '', day: '', ordinal: '', age: '' });
-    const [selected, setSelected] = useState(null);
+
+    const logout = () => {
+        dispatch({ type: "LOGOUT" });
+
+        history.push("/signin");
+    };
 
     const convertToBase64 = (event) => {
         const file = event.target.files[0];
@@ -69,11 +80,9 @@ function Profile() {
         setUserBirthday({ year: dateArray[0], month: dateArray[1], day: dateArray[2], ordinal: ordinal, age: age })
     }
 
-
     const handleChangeGender = (event) => {
-        setUserInfo({ ...userInfo, gender: event.target.value });
 
-        setSelected(event.target.value);
+        setUserInfo({ ...userInfo, gender: event.target.value });
     };
 
     const handleChangeAbout = (event) => {
@@ -84,12 +93,16 @@ function Profile() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        dispatch(updateUser(userInfo));
+    }
+
+    useEffect(() => {
         const birthday = months[userBirthday.month - 1] + " " + userBirthday.day + userBirthday.ordinal + " (" + userBirthday.age + ")";
 
-        setUserInfo({ ...userInfo, birthday: birthday });
+        if (birthday !== "undefined  ()")
+            setUserInfo({ ...userInfo, birthday: birthday });
 
-        console.log(birthday)
-    }
+    }, [userBirthday])
 
     return (
         <section className="section-profile">
@@ -98,15 +111,23 @@ function Profile() {
                 <div className="user--info">
                     <h2 className="user-name">{userInfo.name === "" ? userLogged.result.name : userInfo.name}</h2>
 
-                    <div className="country-and-birth">
+                    <div className="additional-info">
                         <div className="country">
                             <i className="bi bi-geo-alt-fill"></i>
                             <h2 className="user-info--text">Brazil</h2>
                         </div>
 
                         <div className="birth">
-                            <i className="bi bi-balloon-fill"></i>
+                            {userInfo.birthday !== "" && <i className="bi bi-balloon-fill"></i>}
                             <h2 className="user-info--text">{userInfo.birthday}</h2>
+                        </div>
+
+                        <div className="gender">
+                            {userInfo.gender === "Male" && <i className="bi bi-gender-male"></i>}
+                            {userInfo.gender === "Female" && <i className="bi bi-gender-female"></i>}
+                            {userInfo.gender === "Non-binary" && <i className="bi bi-gender-ambiguous"></i>}
+
+                            <h2 className="user-info--text">{userInfo.gender}</h2>
                         </div>
                     </div>
                 </div>
@@ -142,48 +163,18 @@ function Profile() {
                             <label htmlFor="birthday">Birthday</label>
                             <input id="user-birthday"
                                    type="date"
-                                   value={userInfo.birthday}
                                    onChange={(event) => handleChangeBirthday(event)}
                             />
                         </div>
 
-                        <div className="cta-form-gender">
-                            <label htmlFor="gender">Gender</label>
-
-                            <div className="cta-gender">
-                                <label className="checkbox-container"> Male
-                                    <input
-                                        id="checkbox-group"
-                                        type="checkbox"
-                                        value={"Male"}
-                                        checked={selected === "Male"}
-                                        onChange={(event) => handleChangeGender(event)}
-                                    />
-                                    <span className="checkmark"></span>
-                                </label>
-
-                                <label className="checkbox-container"> Female
-                                    <input
-                                        id="checkbox-group"
-                                        type="checkbox"
-                                        value={"Female"}
-                                        checked={selected === "Female"}
-                                        onChange={(event) => handleChangeGender(event)}
-                                    />
-                                    <span className="checkmark"></span>
-                                </label>
-
-                                <label className="checkbox-container"> Non-binary
-                                    <input
-                                        id="checkbox-group"
-                                        type="checkbox"
-                                        value={"Non-binary"}
-                                        checked={selected === "Non-binary"}
-                                        onChange={(event) => handleChangeGender(event)}
-                                    />
-                                    <span className="checkmark"></span>
-                                </label>
-                            </div>
+                        <div className="cta-form-select">
+                            <label htmlFor="select-gender">Gender</label>
+                            <select id="select-gender" required onChange={(event) => handleChangeGender(event)}>
+                                <option className={"opa"} value="">Select...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Non-binary">Non-binary</option>
+                            </select>
                         </div>
 
                         <div className="cta-form-about">
@@ -198,6 +189,10 @@ function Profile() {
 
                         <button className="button button--form" type={"submit"}>
                             Save changes
+                        </button>
+
+                        <button className="button button--form bg-red" onClick={logout}>
+                            Logout
                         </button>
                     </form>
                 </div>

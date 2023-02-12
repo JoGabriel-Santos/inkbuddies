@@ -6,6 +6,7 @@ const authReducer = (state = { authData: null }, action) => {
             return action.payload;
 
         case actionType.AUTH:
+        case actionType.UPDATE:
             localStorage.setItem('profile', JSON.stringify({ ...action?.data }));
 
             return null;

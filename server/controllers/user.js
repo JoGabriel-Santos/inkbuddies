@@ -16,6 +16,22 @@ export const getUsers = async (require, response) => {
     }
 }
 
+export const updateUser = async (require, response) => {
+    const user = require.body;
+
+    try {
+        const updatedUser = await UserModal.findByIdAndUpdate(require.userId, user, { new: true });
+
+        const token = jwt.sign({ name: updatedUser.name, id: updatedUser._id }, secret, { expiresIn: '1h' });
+
+        response.status(200).json({ result: updatedUser, token });
+
+    } catch (error) {
+
+        response.status(500).json({ message: "Something went wrong" });
+    }
+}
+
 export const signin = async (require, response) => {
     const { name, password } = require.body;
 
