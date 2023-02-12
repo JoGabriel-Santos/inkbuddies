@@ -10,6 +10,7 @@ const userSchema = mongoose.Schema({
     birthday: { type: String, required: false },
     gender: { type: String, required: false },
     aboutMe: { type: String, required: false },
+    country: { type: String, required: false },
 });
 
 export default mongoose.model('User', userSchema);

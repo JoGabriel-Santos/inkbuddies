@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateUser } from "../actions/users";
 
+import Geolocation from "../components/Geolocation";
+
 import { months } from "../helpers/months";
 
 function Profile() {
@@ -17,7 +19,8 @@ function Profile() {
             profilePicture: userLogged.result.profilePicture,
             birthday: userLogged.result.birthday,
             gender: userLogged.result.gender,
-            aboutMe: userLogged.result.aboutMe
+            aboutMe: userLogged.result.aboutMe,
+            country: userLogged.result.country
         });
 
     const [userBirthday, setUserBirthday] = useState({ year: '', month: '', day: '', ordinal: '', age: '' });
@@ -38,6 +41,11 @@ function Profile() {
             setUserInfo({ ...userInfo, profilePicture: reader.result.toString() });
         }
     }
+
+    const handleChangeAbout = (event) => {
+
+        setUserInfo({ ...userInfo, aboutMe: event.target.value });
+    };
 
     const handleChangeBirthday = (event) => {
         setUserInfo({ ...userInfo, birthday: event.target.value })
@@ -80,14 +88,15 @@ function Profile() {
         setUserBirthday({ year: dateArray[0], month: dateArray[1], day: dateArray[2], ordinal: ordinal, age: age })
     }
 
+    const handleChangeCountry = (userCountry) => {
+
+        setUserInfo({ ...userInfo, country: userCountry });
+    }
+
     const handleChangeGender = (event) => {
-
-        setUserInfo({ ...userInfo, gender: event.target.value });
-    };
-
-    const handleChangeAbout = (event) => {
-
-        setUserInfo({ ...userInfo, aboutMe: event.target.value });
+        if (event.target.value !== "") {
+            setUserInfo({ ...userInfo, gender: event.target.value });
+        }
     };
 
     const handleSubmit = async (event) => {
@@ -114,11 +123,16 @@ function Profile() {
                     <div className="additional-info">
                         <div className="country">
                             <i className="bi bi-geo-alt-fill"></i>
-                            <h2 className="user-info--text">Brazil</h2>
+
+                            {
+                                userInfo.country !== "" ?
+                                    <h2 className="user-info--text">{userInfo.country}</h2> : <Geolocation changeCountry={handleChangeCountry}/>
+                            }
+
                         </div>
 
                         <div className="birth">
-                            {userInfo.birthday !== "" && <i className="bi bi-balloon-fill"></i>}
+                            {userInfo.birthday !== undefined && <i className="bi bi-balloon-fill"></i>}
                             <h2 className="user-info--text">{userInfo.birthday}</h2>
                         </div>
 
@@ -169,8 +183,8 @@ function Profile() {
 
                         <div className="cta-form-select">
                             <label htmlFor="select-gender">Gender</label>
-                            <select id="select-gender" required onChange={(event) => handleChangeGender(event)}>
-                                <option className={"opa"} value="">Select...</option>
+                            <select id="select-gender" onChange={(event) => handleChangeGender(event)}>
+                                <option value="">Select...</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                                 <option value="Non-binary">Non-binary</option>
