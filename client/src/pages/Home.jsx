@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getUsers } from "../actions/users";
+
 import Users from "../components/Users";
 
 function Home() {
@@ -13,8 +14,6 @@ function Home() {
     const users = useSelector((state) => state.users)
 
     let allUsers = null
-
-    console.log(users)
 
     if (users !== null) {
 
