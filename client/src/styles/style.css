@@ -346,7 +346,7 @@
     padding-left: 15px;
 }
 
-.gender i{
+.gender i {
     -webkit-text-stroke: 1px;
 }
 
@@ -472,6 +472,12 @@
 
 .send-letter i {
     padding-right: 8px;
+}
+
+/* ----- Letter ----- */
+
+.section-letter {
+    margin-bottom: 50px;
 }
 
 /* ----- CTA ----- */

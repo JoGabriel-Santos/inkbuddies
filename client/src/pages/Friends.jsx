@@ -1,6 +1,7 @@
 import React from "react";
 
 import Friend from "../components/Friend";
+import Letter from "../components/Letter";
 import Message from "../components/Message";
 
 function Friends() {
@@ -31,7 +32,7 @@ function Friends() {
                     <div className="user--info">
                         <h2 className="user-name">Gabriello</h2>
 
-                        <div className="country-and-birth">
+                        <div className="additional-info">
                             <div className="country">
                                 <i className="bi bi-geo-alt-fill"></i>
                                 <h2 className="user-info--text">Brazil</h2>
@@ -41,13 +42,20 @@ function Friends() {
                                 <i className="bi bi-balloon-fill"></i>
                                 <h2 className="user-info--text">Jan 20th (22)</h2>
                             </div>
+
+                            <div className="gender">
+                                <i className="bi bi-gender-male"/>
+                                <h2 className="user-info--text">Male</h2>
+                            </div>
                         </div>
                     </div>
 
                     <div className="user-photo">
-                        <img src={ require("../util/profile-gabriellou.png") } alt=""/>
+                        <img src={require("../util/profile-gabriellou.png")} alt=""/>
                     </div>
                 </div>
+
+                <Letter/>
 
                 <div className="container grid grid--3-cols margin-bottom-md">
                     <Message/>
