@@ -64,11 +64,6 @@ function Friends() {
                     <Message/>
                     <Message/>
                 </div>
-
-                <button className="send-letter">
-                    <i className="bi bi-pen"></i>
-                    Write a letter
-                </button>
             </div>
         </section>
     );
