@@ -15,11 +15,11 @@ function App() {
             <BrowserRouter>
                 <Navbar/>
                 <Switch>
-                    <Route path="/" exact component={ Home }/>
-                    <Route path="/signin" exact component={ Authentication }/>
-                    <Route path="/signup" exact component={ Authentication }/>
-                    <Route path="/profile" exact component={ Profile }/>
-                    <Route path="/friends" exact component={ Friends }/>
+                    <Route path="/" exact component={Home}/>
+                    <Route path="/signin" exact component={Authentication}/>
+                    <Route path="/signup" exact component={Authentication}/>
+                    <Route path="/profile" exact component={Profile}/>
+                    <Route path="/friends" exact component={Friends}/>
                 </Switch>
             </BrowserRouter>
         </React.Fragment>

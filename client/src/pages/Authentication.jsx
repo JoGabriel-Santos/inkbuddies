@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useDispatch } from "react-redux";
 import { useHistory, useLocation } from 'react-router-dom';
 
@@ -82,14 +81,14 @@ function Authentication() {
                             Your letter will be on its way!
                         </p>
 
-                        <form className="cta-form" onSubmit={ (event) => submitHandler(event) }>
+                        <form className="cta-form" onSubmit={(event) => submitHandler(event)}>
                             <div className="cta-form-name">
                                 <label htmlFor="full-name">Username</label>
                                 <input
-                                    className={ `${ nameHasError && 'border-red' }` }
-                                    onChange={ nameChangeHandler }
-                                    onBlur={ nameBlurHandler }
-                                    value={ nameValue }
+                                    className={`${nameHasError && 'border-red'}`}
+                                    onChange={nameChangeHandler}
+                                    onBlur={nameBlurHandler}
+                                    value={nameValue}
                                     placeholder="João Gabriel" type="text"
                                 />
                             </div>
@@ -99,10 +98,10 @@ function Authentication() {
                                     <div className="cta-form-name">
                                         <label htmlFor="full-name">Email</label>
                                         <input
-                                            className={ `${ emailHasError && 'border-red' }` }
-                                            onChange={ emailChangeHandler }
-                                            onBlur={ emailBlurHandler }
-                                            value={ emailValue }
+                                            className={`${emailHasError && 'border-red'}`}
+                                            onChange={emailChangeHandler}
+                                            onBlur={emailBlurHandler}
+                                            value={emailValue}
                                             placeholder="gabriel@gmail.com" type="email"
                                         />
                                     </div>
@@ -113,10 +112,10 @@ function Authentication() {
                             <div className="cta-form-email">
                                 <label htmlFor="password">Password</label>
                                 <input
-                                    className={ `${ passwordHasError && 'border-red' }` }
-                                    onChange={ passwordChangeHandler }
-                                    onBlur={ passwordBlurHandler }
-                                    value={ passwordValue }
+                                    className={`${passwordHasError && 'border-red'}`}
+                                    onChange={passwordChangeHandler}
+                                    onBlur={passwordBlurHandler}
+                                    value={passwordValue}
                                     placeholder="********" type="password"
                                 />
                             </div>
@@ -134,8 +133,8 @@ function Authentication() {
                                     : null
                             }
 
-                            <button className="button button--form" type={ "submit" }>
-                                { location.pathname === "/signin" ? "Signin" : "Signup" }
+                            <button className="button button--form" type={"submit"}>
+                                {location.pathname === "/signin" ? "Signin" : "Signup"}
                             </button>
                         </form>
                     </div>

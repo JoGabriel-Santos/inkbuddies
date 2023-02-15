@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+
 import { updateUser } from "../actions/users";
 
 import Geolocation from "../components/Geolocation";

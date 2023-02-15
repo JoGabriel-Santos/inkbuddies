@@ -9,13 +9,6 @@ function Navbar() {
     const history = useHistory();
     const location = useLocation();
 
-    const logout = () => {
-        dispatch({ type: "LOGOUT" });
-
-        history.push("/signin");
-        setUser(null);
-    };
-
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem("profile")));
 

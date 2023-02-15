@@ -46,7 +46,7 @@ function Home() {
                                 </div>
 
                                 <div className="hero-image-box">
-                                    <img className="hero-image" src={ require("../util/logo.png") } alt=""/>
+                                    <img className="hero-image" src={require("../util/logo.png")} alt=""/>
                                 </div>
                             </div>
 
@@ -71,8 +71,8 @@ function Home() {
 
                                     allUsers?.map((userInfo, key) => (
 
-                                        <div key={ key }>
-                                            <Users userInfo={ userInfo } currentUserEmail={ userLogged.result.email }/>
+                                        <div key={key}>
+                                            <Users userInfo={userInfo} currentUserEmail={userLogged.result.email}/>
                                         </div>
                                     ))
                                 }

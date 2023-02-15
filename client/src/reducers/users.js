@@ -1,6 +1,6 @@
-import * as actionType from '../constants/actionTypes'
+import * as actionType from "../constants/actionTypes";
 
-const authReducer = (state = { authData: null }, action) => {
+const authReducer = (state = { userData: null }, action) => {
     switch (action.type) {
         case actionType.FETCH_ALL:
             return action.payload;

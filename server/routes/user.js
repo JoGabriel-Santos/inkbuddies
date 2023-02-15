@@ -6,7 +6,7 @@ import auth from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.get('/', getUsers)
+router.get('/', getUsers);
 router.patch("/update", auth, updateUser);
 
 router.post("/signin", signin);

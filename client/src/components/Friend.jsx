@@ -4,7 +4,7 @@ function Friend() {
 
     return (
         <div className="friend-card">
-            <img className="friend-card--photo" src={ require("../util/friend.png") } alt=""/>
+            <img className="friend-card--photo" src={require("../util/friend.png")} alt=""/>
 
             <div className="friend-card--user">
                 <div className="friend-card--info">
@@ -16,7 +16,6 @@ function Friend() {
                     <h4>yesterday</h4>
                 </div>
             </div>
-
         </div>
     );
 }

@@ -10,7 +10,7 @@ function Message() {
                 </div>
 
                 <div className="stamp">
-                    <img src={ require("../util/stamps/christ-the-redeemer.png") } alt=""/>
+                    <img src={require("../util/stamps/christ-the-redeemer.png")} alt=""/>
                 </div>
             </div>
 
@@ -24,7 +24,6 @@ function Message() {
 
             <div className="message-user_info">
                 <h2>Me</h2>
-
                 <p>2 days ago</p>
             </div>
         </div>

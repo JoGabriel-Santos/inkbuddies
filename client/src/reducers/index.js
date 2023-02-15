@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
 
-import users from './users'
+import users from "./users";
 
-export const reducers = combineReducers({ users })
+export const reducers = combineReducers({ users });

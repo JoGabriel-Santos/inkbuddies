@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 
 function Geolocation(props) {
     const [country, setCountry] = useState(null);
 
     useEffect(() => {
 
-        props.changeCountry(country)
-    }, [country])
+        props.changeCountry(country);
+    }, [country]);
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
@@ -14,7 +14,7 @@ function Geolocation(props) {
                 const { latitude, longitude } = position.coords;
 
                 fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=2c8cb4121cf7442e8534188b5b142be6`)
-                    .then(res => res.json())
+                    .then(response => response.json())
                     .then(data => {
                         setCountry(data.results[0].components.country);
                     })
@@ -28,7 +28,6 @@ function Geolocation(props) {
             }
         );
 
-        console.log("Geolocation: " + country)
     }, []);
 
     return (
