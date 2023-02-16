@@ -84,7 +84,10 @@ function Friends() {
                             </div>
 
                             <div className="gender">
-                                <i className="bi bi-gender-male"/>
+                                {penpalInfo?.gender === "Male" && <i className="bi bi-gender-male"></i>}
+                                {penpalInfo?.gender === "Female" && <i className="bi bi-gender-female"></i>}
+                                {penpalInfo?.gender === "Non-binary" && <i className="bi bi-gender-ambiguous"></i>}
+
                                 <h2 className="user-info--text">{penpalInfo?.gender}</h2>
                             </div>
                         </div>
