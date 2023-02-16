@@ -1,6 +1,6 @@
 import React from "react";
 
-function Friend() {
+function Friend(props) {
 
     return (
         <div className="friend-card">

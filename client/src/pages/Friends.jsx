@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { fetchPenpals } from "../actions/penpal";
 
 import Friend from "../components/Friend";
 import Letter from "../components/Letter";
 import Message from "../components/Message";
 
 function Friends() {
+    const dispatch = useDispatch();
+
+    const userLogged = JSON.parse(localStorage.getItem("profile"));
+    const penpals = useSelector((state) => state.penpals);
+
+    useEffect(() => {
+
+        dispatch(fetchPenpals(userLogged.result._id));
+    }, [])
 
     return (
         <section className="section-friends">
@@ -12,19 +24,22 @@ function Friends() {
                 <div className="friends-header">
                     <div className="friends-quantity">
                         <i className="bi bi-people-fill"></i>
-                        <h2>Friends - 4</h2>
+                        <h2>Friends - {penpals?.length}</h2>
                     </div>
 
                     <i className="bi bi-sort-down filter"></i>
                 </div>
 
                 <div className="friend-list">
-                    <Friend/>
-                    <Friend/>
-                    <Friend/>
-                    <Friend/>
-                </div>
+                    {
+                        penpals?.map((penpal, key) => (
 
+                            <div key={key}>
+                                <Friend penpal={penpal}/>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
 
             <div className="messages">
