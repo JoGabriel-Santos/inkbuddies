@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getUser } from "../actions/users";
@@ -11,27 +11,30 @@ import Message from "../components/Message";
 function Friends() {
     const dispatch = useDispatch();
 
-    const [penpalMessages, setPenpalMessages] = useState([]);
+    const [penpalInfo, setPenpalInfo] = useState({ penpal: {}, penpalMessages: [{}] });
 
     const userLogged = JSON.parse(localStorage.getItem("profile"));
     const penpals = useSelector((state) => state.penpals);
 
-    penpals?.map((penpal) => {
+    useMemo(() => {
+        penpals?.map((penpal) => {
 
-        if (penpal.penpal_1 === userLogged.result._id) {
-            dispatch(getUser(penpal.penpal_2));
+            if (penpal.penpal_1 === userLogged.result._id) {
+                dispatch(getUser(penpal.penpal_2));
 
-        } else {
-            dispatch(getUser(penpal.penpal_1));
-        }
-    })
+            } else {
+                dispatch(getUser(penpal.penpal_1));
+            }
+        })
+    }, [penpals])
 
-    function handleGetPenpalInfo(penpalId) {
+    function handleGetPenpalInfo(penpalInfo) {
 
         penpals?.map((penpal) => {
 
-            if (penpal.penpal_1 === penpalId || penpal.penpal_2 === penpalId) {
-                setPenpalMessages(penpal);
+            if (penpal.penpal_1 === penpalInfo._id || penpal.penpal_2 === penpalInfo._id) {
+
+                setPenpalInfo({ ...penpalInfo, penpalMessages: penpal });
             }
         })
     }
@@ -61,7 +64,7 @@ function Friends() {
             <div className="messages">
                 <div className="user">
                     <div className="user--info">
-                        <h2 className="user-name">Gabriello</h2>
+                        <h2 className="user-name">{penpalInfo?.name}</h2>
 
                         <div className="additional-info">
                             <div className="country">
@@ -71,18 +74,18 @@ function Friends() {
 
                             <div className="birth">
                                 <i className="bi bi-balloon-fill"></i>
-                                <h2 className="user-info--text">Jan 20th (22)</h2>
+                                <h2 className="user-info--text">{penpalInfo?.birthday}</h2>
                             </div>
 
                             <div className="gender">
                                 <i className="bi bi-gender-male"/>
-                                <h2 className="user-info--text">Male</h2>
+                                <h2 className="user-info--text">{penpalInfo?.gender}</h2>
                             </div>
                         </div>
                     </div>
 
                     <div className="user-photo">
-                        <img src={require("../util/profile-gabriellou.png")} alt=""/>
+                        <img src={penpalInfo?.profilePicture} alt=""/>
                     </div>
                 </div>
 
@@ -100,4 +103,4 @@ function Friends() {
     );
 }
 
-export default Friends;
+export default React.memo(Friends);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function Friend(props) {
@@ -14,16 +14,18 @@ function Friend(props) {
         })
     }
 
-    function handlePenpalClick(penpalId) {
+    function handlePenpalClick(penpalInfo) {
 
-        props.penpalId(penpalId);
+        props.penpalId(penpalInfo);
     }
+
+    console.log(penpals)
 
     return (
         <React.Fragment>
             {
                 userPenpals?.map((penpal, key) => (
-                    <div className="friend-card" onClick={(event) => handlePenpalClick(penpal._id)} key={key}>
+                    <div className="friend-card" onClick={(event) => handlePenpalClick(penpal)} key={key}>
                         <img className="friend-card--photo" src={penpal.profilePicture} alt=""/>
 
                         <div className="friend-card--user">
@@ -43,4 +45,4 @@ function Friend(props) {
     );
 }
 
-export default React.memo(Friend);
+export default Friend;
