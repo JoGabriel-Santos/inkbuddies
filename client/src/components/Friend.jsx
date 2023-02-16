@@ -10,7 +10,7 @@ function Friend(props) {
 
         penpals?.map((penpal) => {
 
-            userPenpals.push(penpal[0])
+            userPenpals.push(penpal[0]);
         })
     }
 

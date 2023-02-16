@@ -585,8 +585,10 @@
     background-position: center;
     background-size: cover;
     border-radius: 100%;
-    width: 65px;
+    height: 65px;
     margin-right: 15px;
+    object-fit: cover;
+    width: 65px;
 }
 
 .textbox-message {

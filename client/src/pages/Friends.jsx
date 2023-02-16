@@ -93,12 +93,12 @@ function Friends() {
                         </div>
                     </div>
 
-                    <div className="user-photo">
+                    <div className={`user-photo ${displayIcons}`}>
                         <img src={penpalInfo?.profilePicture} alt=""/>
                     </div>
                 </div>
 
-                <Letter/>
+                <Letter penpalInfo={penpalInfo}/>
 
                 <div className="container grid grid--3-cols margin-bottom-md">
                     <Message/>

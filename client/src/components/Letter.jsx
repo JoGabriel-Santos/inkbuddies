@@ -2,11 +2,13 @@ import React, { useState } from "react";
 
 import OpenTextBoxButton from "./WriteButton";
 
-function Letter() {
+function Letter(props) {
     const [isTextBoxOpen, setIsTextBoxOpen] = useState(false);
 
     const openTextBox = () => setIsTextBoxOpen(true);
     const closeTextBox = () => setIsTextBoxOpen(false);
+
+    console.log(props.penpalInfo.profilePicture)
 
     return (
         <React.Fragment>
@@ -26,11 +28,11 @@ function Letter() {
 
                         <div className="textbox-recipient">
                             <div className="textbox-recipient--card">
-                                <img className="textbox-recipient--photo" src={require("../util/friend.png")} alt=""/>
+                                <img className="textbox-recipient--photo" src={props.penpalInfo.profilePicture} alt=""/>
 
                                 <div className="friend-card--info">
-                                    <h2>Sofia</h2>
-                                    <p>Brazil</p>
+                                    <h2>{props.penpalInfo.name}</h2>
+                                    <p>{props.penpalInfo.country}</p>
                                 </div>
                             </div>
 
