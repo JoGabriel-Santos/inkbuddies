@@ -69,7 +69,7 @@ function Friends() {
                         <div className="additional-info">
                             <div className="country">
                                 <i className="bi bi-geo-alt-fill"></i>
-                                <h2 className="user-info--text">Brazil</h2>
+                                <h2 className="user-info--text">{penpalInfo?.country}</h2>
                             </div>
 
                             <div className="birth">

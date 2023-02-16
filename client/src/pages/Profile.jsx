@@ -126,10 +126,9 @@ function Profile() {
                             <i className="bi bi-geo-alt-fill"></i>
 
                             {
-                                userInfo.country !== "" ?
-                                    <h2 className="user-info--text">{userInfo.country}</h2> : <Geolocation changeCountry={handleChangeCountry}/>
+                                userInfo.country === null || userInfo.country === '' ?
+                                    <Geolocation changeCountry={handleChangeCountry}/> : <h2 className="user-info--text">{userInfo.country}</h2>
                             }
-
                         </div>
 
                         <div className="birth">

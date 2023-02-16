@@ -19,8 +19,6 @@ function Friend(props) {
         props.penpalId(penpalInfo);
     }
 
-    console.log(penpals)
-
     return (
         <React.Fragment>
             {
