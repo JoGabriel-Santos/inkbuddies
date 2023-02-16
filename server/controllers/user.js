@@ -1,9 +1,24 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+import { ObjectId } from "mongodb";
+
 import UserModal from "../models/user.js";
 
 const secret = "secret";
+
+export const getUser = async (require, response) => {
+    const { id } = require.params;
+
+    try {
+        const userMessage = await UserModal.find({ _id: new ObjectId(id) });
+        response.status(200).json(userMessage);
+
+    } catch (error) {
+
+        response.status(404).json({ message: error });
+    }
+}
 
 export const getUsers = async (require, response) => {
     try {

@@ -13,9 +13,10 @@ API.interceptors.request.use((request) => {
 })
 
 export const fetchUsers = () => API.get('/user');
+export const fetchUser = (id) => API.get(`/user/${id}`);
 export const updateUser = (updatedUser) => API.patch('/user/update', updatedUser);
 
-export const fetchPenpals = (id) => API.get(`/penpal/${id}`);
+export const fetchPenpals = (id) => API.get(`/penpal/fetch/${id}`);
 export const createPenpal = (penpalData) => API.post('/penpal/new', penpalData);
 
 export const signIn = (formData) => API.post('/user/signin', formData);

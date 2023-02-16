@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { getUser } from "../actions/users";
 import { fetchPenpals } from "../actions/penpal";
 
 import Friend from "../components/Friend";
@@ -10,8 +11,30 @@ import Message from "../components/Message";
 function Friends() {
     const dispatch = useDispatch();
 
+    const [penpalMessages, setPenpalMessages] = useState([]);
+
     const userLogged = JSON.parse(localStorage.getItem("profile"));
     const penpals = useSelector((state) => state.penpals);
+
+    penpals?.map((penpal) => {
+
+        if (penpal.penpal_1 === userLogged.result._id) {
+            dispatch(getUser(penpal.penpal_2));
+
+        } else {
+            dispatch(getUser(penpal.penpal_1));
+        }
+    })
+
+    function handleGetPenpalInfo(penpalId) {
+
+        penpals?.map((penpal) => {
+
+            if (penpal.penpal_1 === penpalId || penpal.penpal_2 === penpalId) {
+                setPenpalMessages(penpal);
+            }
+        })
+    }
 
     useEffect(() => {
 
@@ -31,14 +54,7 @@ function Friends() {
                 </div>
 
                 <div className="friend-list">
-                    {
-                        penpals?.map((penpal, key) => (
-
-                            <div key={key}>
-                                <Friend penpal={penpal}/>
-                            </div>
-                        ))
-                    }
+                    <Friend penpalId={handleGetPenpalInfo} penpalsQuantity={penpals.length}/>
                 </div>
             </div>
 

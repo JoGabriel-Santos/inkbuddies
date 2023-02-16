@@ -1,11 +1,12 @@
 import express from "express";
 
-import { getUsers, updateUser, signin, signup } from "../controllers/user.js";
+import { getUser, getUsers, updateUser, signin, signup } from "../controllers/user.js";
 
 import auth from "../middleware/auth.js";
 
 const router = express.Router();
 
+router.get('/:id', getUser);
 router.get('/', getUsers);
 router.patch('/update', auth, updateUser);
 
