@@ -7,12 +7,12 @@ const secret = "secret";
 
 export const getUsers = async (require, response) => {
     try {
-        const usersMessage = await UserModal.find()
-        response.status(200).json(usersMessage)
+        const usersMessage = await UserModal.find();
+        response.status(200).json(usersMessage);
 
     } catch (error) {
 
-        response.status(404).json({ message: error })
+        response.status(404).json({ message: error });
     }
 }
 

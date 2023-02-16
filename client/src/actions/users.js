@@ -2,6 +2,16 @@ import { AUTH, FETCH_ALL, UPDATE } from '../constants/actionTypes';
 
 import * as api from '../api/index.js';
 
+export const getUser = () => async (dispatch) => {
+    try {
+
+
+    } catch (error) {
+
+        console.log(error.message);
+    }
+}
+
 export const getUsers = () => async (dispatch) => {
     try {
         const { data } = await api.fetchUsers();

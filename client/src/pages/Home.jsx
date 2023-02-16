@@ -8,22 +8,22 @@ import Users from "../components/Users";
 
 function Home() {
     const history = useHistory();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const userLogged = JSON.parse(localStorage.getItem("profile"));
-    const users = useSelector((state) => state.users)
+    const users = useSelector((state) => state.users);
 
-    let allUsers = null
+    let allUsers = null;
 
     if (users !== null) {
 
-        allUsers = users.filter(user => userLogged.result.email !== user.email)
+        allUsers = users.filter(user => userLogged.result.email !== user.email);
     }
 
     useEffect(() => {
-        dispatch(getUsers())
+        dispatch(getUsers());
 
-    }, [])
+    }, []);
 
     return (
         <React.Fragment>
