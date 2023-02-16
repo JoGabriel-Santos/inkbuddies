@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
 function Friend(props) {
@@ -23,13 +23,13 @@ function Friend(props) {
         <React.Fragment>
             {
                 userPenpals?.map((penpal, key) => (
-                    <div className="friend-card" onClick={(event) => handlePenpalClick(penpal)} key={key}>
+                    <div className="friend-card" onClick={() => handlePenpalClick(penpal)} key={key}>
                         <img className="friend-card--photo" src={penpal.profilePicture} alt=""/>
 
                         <div className="friend-card--user">
                             <div className="friend-card--info">
                                 <h2>{penpal.name}</h2>
-                                <p>Brazil</p>
+                                <p>{penpal.country}</p>
                             </div>
 
                             <div className="friend-card--time">

@@ -16,6 +16,12 @@ function Friends() {
     const userLogged = JSON.parse(localStorage.getItem("profile"));
     const penpals = useSelector((state) => state.penpals);
 
+    let displayIcons = "";
+
+    if (penpalInfo.name === undefined) {
+        displayIcons = "none";
+    }
+
     useMemo(() => {
         penpals?.map((penpal) => {
 
@@ -66,7 +72,7 @@ function Friends() {
                     <div className="user--info">
                         <h2 className="user-name">{penpalInfo?.name}</h2>
 
-                        <div className="additional-info">
+                        <div className={`additional-info ${displayIcons}`}>
                             <div className="country">
                                 <i className="bi bi-geo-alt-fill"></i>
                                 <h2 className="user-info--text">{penpalInfo?.country}</h2>

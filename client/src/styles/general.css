@@ -182,3 +182,7 @@ strong {
 .margin-right-sm {
     margin-right: 1.6rem !important;
 }
+
+.none {
+    display: none !important;
+}
