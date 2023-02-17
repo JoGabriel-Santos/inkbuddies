@@ -1,5 +1,4 @@
 import PenpalModal from "../models/penpal.js";
-import UserModal from "../models/user.js";
 
 export const fetchPenpals = async (require, response) => {
     const { id } = require.params;
@@ -34,6 +33,7 @@ export const sendLetter = async (require, response) => {
 
     try {
         const newLetter = await PenpalModal.findByIdAndUpdate(letter.idPenpal, { $push: { letters: letter.message } }, { new: true });
+        response.status(201).json(newLetter);
 
     } catch (error) {
 
