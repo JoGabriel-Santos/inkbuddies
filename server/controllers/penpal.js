@@ -33,7 +33,7 @@ export const sendLetter = async (require, response) => {
     const letter = require.body;
 
     try {
-        // const newLetter = await PenpalModal.findByIdAndUpdate(letter.idPenpal, letter.message, { new: true });
+        const newLetter = await PenpalModal.findByIdAndUpdate(letter.idPenpal, { $push: { letters: letter.message } }, { new: true });
 
     } catch (error) {
 
