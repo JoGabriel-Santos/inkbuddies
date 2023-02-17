@@ -23,3 +23,13 @@ export const createPenpal = (penpalData) => async (dispatch) => {
         console.log(error.message);
     }
 }
+
+export const sendLetter = (letterData) => async (dispatch) => {
+    try {
+        const { data } = await api.sendLetter(letterData);
+
+    } catch (error) {
+
+        console.log(error.message);
+    }
+}

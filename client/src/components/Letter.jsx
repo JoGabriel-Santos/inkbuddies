@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import OpenTextBoxButton from "./WriteButton";
 
 function Letter(props) {
     const [isTextBoxOpen, setIsTextBoxOpen] = useState(false);
+    const [letter, setLetter] = useState(
+        {
+            viewed: false,
+            country: props.senderInfo.country,
+            sender: props.senderInfo.sender,
+            message: '',
+            date: '',
+        });
 
     const openTextBox = () => setIsTextBoxOpen(true);
     const closeTextBox = () => setIsTextBoxOpen(false);
 
-    console.log(props.penpalInfo.profilePicture)
+    function handleLetterSend() {
+
+        setLetter({ ...letter, date: new Date() })
+    }
+
+    useEffect(() => {
+        props.message(letter)
+
+    }, [letter.date])
 
     return (
         <React.Fragment>
@@ -20,7 +36,7 @@ function Letter(props) {
                         <div className="textbox-header">
                             <button className="close-button" onClick={closeTextBox}><i className="bi bi-x"></i></button>
 
-                            <div className="send-button">
+                            <div className="send-button" onClick={handleLetterSend}>
                                 <i className="bi bi-send"></i>
                                 <h5>Send</h5>
                             </div>
@@ -42,7 +58,12 @@ function Letter(props) {
                         </div>
 
                         <div className="textbox-message">
-                            <textarea className="textbox-message" placeholder="Tap here to begin writing..." rows={10} cols={50}/>
+                            <textarea
+                                className="textbox-message"
+                                placeholder="Tap here to begin writing..."
+                                value={letter.message}
+                                onChange={(event) => setLetter({ ...letter, message: event.target.value })}
+                                rows={10} cols={50}/>
                         </div>
                     </div>
                 </div>

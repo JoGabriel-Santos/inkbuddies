@@ -18,6 +18,7 @@ export const updateUser = (updatedUser) => API.patch('/user/update', updatedUser
 
 export const fetchPenpals = (id) => API.get(`/penpal/fetch/${id}`);
 export const createPenpal = (penpalData) => API.post('/penpal/new', penpalData);
+export const sendLetter = (letterData) => API.patch('/penpal/letter', letterData);
 
 export const signIn = (formData) => API.post('/user/signin', formData);
 export const signUp = (formData) => API.post('/user/signup', formData);

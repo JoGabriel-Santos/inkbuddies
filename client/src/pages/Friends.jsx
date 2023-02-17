@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getUser } from "../actions/users";
-import { fetchPenpals } from "../actions/penpal";
+import { fetchPenpals, sendLetter } from "../actions/penpal";
 
 import Friend from "../components/Friend";
 import Letter from "../components/Letter";
@@ -43,6 +43,14 @@ function Friends() {
                 setPenpalInfo({ ...penpalInfo, penpalMessages: penpal });
             }
         })
+    }
+
+    function handleMessageSend(message) {
+
+        if (message.date !== '') {
+
+            dispatch(sendLetter({ idPenpal: penpalInfo.penpalMessages._id, message: message }));
+        }
     }
 
     useEffect(() => {
@@ -98,7 +106,10 @@ function Friends() {
                     </div>
                 </div>
 
-                <Letter penpalInfo={penpalInfo}/>
+                <Letter
+                    penpalInfo={penpalInfo}
+                    senderInfo={{ country: userLogged.result.country, sender: userLogged.result.name }}
+                    message={handleMessageSend}/>
 
                 <div className="container grid grid--3-cols margin-bottom-md">
                     <Message/>
