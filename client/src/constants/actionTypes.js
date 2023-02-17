@@ -6,3 +6,4 @@ export const LOGOUT = 'LOGOUT';
 
 export const FETCH_PENPALS = 'FETCH_PENPALS';
 export const CREATE_PENPAL = 'CREATE_PENPAL';
+export const SEND_LETTER = 'SEND_LETTER';

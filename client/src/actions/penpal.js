@@ -1,4 +1,4 @@
-import { FETCH_PENPALS, CREATE_PENPAL } from "../constants/actionTypes";
+import { FETCH_PENPALS, CREATE_PENPAL, SEND_LETTER } from "../constants/actionTypes";
 
 import * as api from "../api/index.js";
 
@@ -27,6 +27,7 @@ export const createPenpal = (penpalData) => async (dispatch) => {
 export const sendLetter = (letterData) => async (dispatch) => {
     try {
         const { data } = await api.sendLetter(letterData);
+        dispatch({ type: SEND_LETTER, payload: data });
 
     } catch (error) {
 

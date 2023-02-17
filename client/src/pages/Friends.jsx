@@ -12,6 +12,7 @@ function Friends() {
     const dispatch = useDispatch();
 
     const [penpalInfo, setPenpalInfo] = useState({ penpal: {}, penpalMessages: [{}] });
+    const [showMessages, setShowMessages] = useState([]);
 
     const userLogged = JSON.parse(localStorage.getItem("profile"));
     const penpals = useSelector((state) => state.penpals);
@@ -41,6 +42,15 @@ function Friends() {
             if (penpal.penpal_1 === penpalInfo._id || penpal.penpal_2 === penpalInfo._id) {
 
                 setPenpalInfo({ ...penpalInfo, penpalMessages: penpal });
+            }
+        })
+
+        penpals?.map((penpal) => {
+
+            if (userLogged.result._id === penpal.penpal_1 && penpalInfo._id === penpal.penpal_2 ||
+                userLogged.result._id === penpal.penpal_2 && penpalInfo._id === penpal.penpal_1) {
+
+                setShowMessages(penpal.letters.reverse())
             }
         })
     }
@@ -108,15 +118,20 @@ function Friends() {
 
                 <Letter
                     penpalInfo={penpalInfo}
-                    senderInfo={{ country: userLogged.result.country, sender: userLogged.result.name }}
+                    senderInfo={
+                        {
+                            country: userLogged.result.country,
+                            sender: userLogged.result.name
+                        }
+                    }
                     message={handleMessageSend}/>
 
                 <div className="container grid grid--3-cols margin-bottom-md">
-                    <Message/>
-                    <Message/>
-                    <Message/>
-                    <Message/>
-                    <Message/>
+                    {
+                        showMessages?.map((message, key) => (
+                            <Message message={message} key={key}/>
+                        ))
+                    }
                 </div>
             </div>
         </section>

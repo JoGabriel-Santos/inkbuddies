@@ -430,12 +430,14 @@
 
 .message-content {
     padding: 20px;
+    width: 100%;
 }
 
 .content {
     font-size: 2rem;
     height: 100px;
     line-height: 1.2;
+
     overflow: hidden;
 }
 
