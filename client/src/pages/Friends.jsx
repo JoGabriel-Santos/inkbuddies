@@ -50,7 +50,7 @@ function Friends() {
             if (userLogged.result._id === penpal.penpal_1 && penpalInfo._id === penpal.penpal_2 ||
                 userLogged.result._id === penpal.penpal_2 && penpalInfo._id === penpal.penpal_1) {
 
-                setShowMessages(penpal.letters.reverse())
+                setShowMessages(penpal.letters);
             }
         })
     }
@@ -138,4 +138,4 @@ function Friends() {
     );
 }
 
-export default React.memo(Friends);
+export default Friends;
