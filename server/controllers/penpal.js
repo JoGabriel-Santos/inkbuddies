@@ -32,7 +32,9 @@ export const sendLetter = async (require, response) => {
     const letter = require.body;
 
     try {
-        const newLetter = await PenpalModal.findByIdAndUpdate(letter.idPenpal, { $push: { letters: letter.message } }, { new: true });
+        const newLetter = await PenpalModal.findByIdAndUpdate(
+            letter.idPenpal, { $push: { letters: { $each: [letter.message], $position: 0 } } }, { new: true });
+
         response.status(201).json(newLetter);
 
     } catch (error) {
