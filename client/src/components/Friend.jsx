@@ -6,6 +6,8 @@ function Friend(props) {
 
     let userPenpals = [];
 
+    let cardBackground = "";
+
     if (penpals.length === props.penpalsQuantity) {
 
         penpals?.map((penpal) => {
@@ -23,7 +25,10 @@ function Friend(props) {
         <React.Fragment>
             {
                 userPenpals?.map((penpal, key) => (
-                    <div className="friend-card" onClick={() => handlePenpalClick(penpal)} key={key}>
+                    <div className={`friend-card ${props.penpalSelected === penpal._id ? cardBackground = "card-selected" : cardBackground = ""}`}
+                         onClick={() => handlePenpalClick(penpal)}
+                         key={key}>
+
                         <img className="friend-card--photo" src={penpal.profilePicture} alt=""/>
 
                         <div className="friend-card--user">

@@ -17,6 +17,8 @@ const penpalReducer = (penpals = [], action) => {
                 }
             }
 
+            console.log(penpals)
+
             return penpals;
 
         default:

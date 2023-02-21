@@ -12,6 +12,7 @@ function Friends() {
     const dispatch = useDispatch();
 
     const [penpalInfo, setPenpalInfo] = useState({ penpal: {}, penpalMessages: [{}] });
+    const [penpalSelected, setPenpalSelected] = useState();
     const [showMessages, setShowMessages] = useState([]);
 
     const userLogged = JSON.parse(localStorage.getItem("profile"));
@@ -53,6 +54,8 @@ function Friends() {
                 setShowMessages(penpal.letters);
             }
         })
+
+        setPenpalSelected(penpalInfo._id);
     }
 
     function handleMessageSend(message) {
@@ -81,7 +84,7 @@ function Friends() {
                 </div>
 
                 <div className="friend-list">
-                    <Friend penpalId={handleGetPenpalInfo} penpalsQuantity={penpals.length}/>
+                    <Friend penpalId={handleGetPenpalInfo} penpalSelected={penpalSelected} penpalsQuantity={penpals.length}/>
                 </div>
             </div>
 

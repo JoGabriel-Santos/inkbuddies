@@ -91,6 +91,11 @@ strong {
     color: white;
 }
 
+.card-selected {
+    background-color: #e67e22;
+    color: white;
+}
+
 .center-text {
     text-align: center;
 }
