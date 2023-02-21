@@ -43,4 +43,4 @@ function Friend(props) {
     );
 }
 
-export default React.memo(Friend);
+export default Friend;
