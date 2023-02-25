@@ -13,6 +13,7 @@ const userSchema = mongoose.Schema({
     gender: { type: String, required: false },
     aboutMe: { type: String, required: false },
     country: { type: String, required: false },
+    latLong: { type: {}, required: false },
 });
 
 export default mongoose.model("User", userSchema);

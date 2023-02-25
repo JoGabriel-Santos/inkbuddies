@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 
 function Geolocation(props) {
     const [country, setCountry] = useState(null);
+    const [latLong, setLatLong] = useState(null);
 
     useEffect(() => {
 
-        props.changeCountry(country);
+        props.changeCountry(country, latLong);
     }, [country]);
 
     useEffect(() => {
@@ -17,6 +18,7 @@ function Geolocation(props) {
                     .then(response => response.json())
                     .then(data => {
                         setCountry(data.results[0].components.country);
+                        setLatLong(data.results[0].geometry);
                     })
                     .catch(err => console.error(err));
             },

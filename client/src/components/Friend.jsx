@@ -16,6 +16,13 @@ function Friend(props) {
         })
     }
 
+    userPenpals.sort((penpalA, penpalB) => {
+        if (penpalA.name > penpalB.name) return 1;
+        if (penpalA.name < penpalB.name) return -1;
+
+        return 0;
+    });
+
     function handlePenpalClick(penpalInfo) {
 
         props.penpalId(penpalInfo);

@@ -345,18 +345,24 @@
 }
 
 .birth,
-.gender {
+.gender,
+.distance,
+.time-arrive {
     display: flex;
     padding-left: 15px;
 }
 
-.gender i {
+.gender i,
+.distance i,
+.time-arrive i {
     -webkit-text-stroke: 1px;
 }
 
 .country i,
 .birth i,
-.gender i {
+.gender i,
+.distance i,
+.time-arrive i {
     font-size: 20px;
     padding-right: 5px;
 }

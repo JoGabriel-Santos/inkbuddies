@@ -8,10 +8,13 @@ import Friend from "../components/Friend";
 import Letter from "../components/Letter";
 import Message from "../components/Message";
 
+import { calculateDistance } from "../helpers/calculateDistance";
+
 function Friends() {
     const dispatch = useDispatch();
 
     const [penpalInfo, setPenpalInfo] = useState({ penpal: {}, penpalMessages: [{}] });
+    const [penpalDistance, setPenpalDistance] = useState({});
     const [penpalSelected, setPenpalSelected] = useState();
     const [showMessages, setShowMessages] = useState([]);
 
@@ -56,11 +59,17 @@ function Friends() {
         })
 
         setPenpalSelected(penpalInfo._id);
+
+        setPenpalDistance(
+            calculateDistance(
+                penpalInfo.latLong.lat, penpalInfo.latLong.lng,
+                userLogged.result.latLong.lat, userLogged.result.latLong.lng
+            ))
     }
 
     function handleMessageSend(message) {
 
-        if (message.date !== '') {
+        if (message.sendDate !== '') {
 
             dispatch(sendLetter({ idPenpal: penpalInfo.penpalMessages._id, message: message }));
         }
@@ -110,6 +119,16 @@ function Friends() {
                                 {penpalInfo?.gender === "Non-binary" && <i className="bi bi-gender-ambiguous"></i>}
 
                                 <h2 className="user-info--text">{penpalInfo?.gender}</h2>
+                            </div>
+
+                            <div className="distance">
+                                <i className="bi bi-arrow-left-right"></i>
+                                <h2 className="user-info--text">{penpalDistance?.distance}km away</h2>
+                            </div>
+
+                            <div className="time-arrive">
+                                <i className="bi bi-clock-history"></i>
+                                <h2 className="user-info--text">Letter delivers in {penpalDistance?.hours} hours</h2>
                             </div>
                         </div>
                     </div>

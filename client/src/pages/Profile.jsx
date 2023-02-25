@@ -21,7 +21,8 @@ function Profile() {
             birthday: userLogged.result.birthday,
             gender: userLogged.result.gender,
             aboutMe: userLogged.result.aboutMe,
-            country: userLogged.result.country
+            country: userLogged.result.country,
+            latLong: userLogged.result.latLong,
         });
 
     const [userBirthday, setUserBirthday] = useState({ year: '', month: '', day: '', ordinal: '', age: '' });
@@ -89,9 +90,9 @@ function Profile() {
         setUserBirthday({ year: dateArray[0], month: dateArray[1], day: dateArray[2], ordinal: ordinal, age: age })
     }
 
-    const handleChangeCountry = (userCountry) => {
+    const handleChangeCountry = (userCountry, userLatLong) => {
 
-        setUserInfo({ ...userInfo, country: userCountry });
+        setUserInfo({ ...userInfo, country: userCountry, latLong: userLatLong });
     }
 
     const handleChangeGender = (event) => {

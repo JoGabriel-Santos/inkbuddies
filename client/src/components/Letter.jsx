@@ -10,7 +10,8 @@ function Letter(props) {
             country: props.senderInfo.country,
             sender: props.senderInfo.sender,
             message: '',
-            date: '',
+            sendDate: '',
+            arrivalDate: '',
         });
 
     const openTextBox = () => setIsTextBoxOpen(true);
@@ -18,13 +19,13 @@ function Letter(props) {
 
     function handleLetterSend() {
 
-        setLetter({ ...letter, date: new Date() })
+        setLetter({ ...letter, sendDate: new Date() })
     }
 
     useEffect(() => {
         props.message(letter)
 
-    }, [letter.date])
+    }, [letter.sendDate])
 
     return (
         <React.Fragment>
