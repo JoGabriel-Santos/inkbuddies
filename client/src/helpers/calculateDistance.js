@@ -13,5 +13,5 @@ export function calculateDistance(lat1, lon1, lat2, lon2) {
     const hours = Math.floor(duration);
     const minutes = Math.floor((duration - hours) * 60);
 
-    return { distance: (R * c).toFixed(1).replace(".", ","), hours: hours, minutes: minutes };
+    return { distance: (R * c).toFixed(1).replace(".", ","), hours, minutes };
 }

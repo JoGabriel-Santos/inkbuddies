@@ -19,13 +19,17 @@ function Letter(props) {
 
     function handleLetterSend() {
 
-        setLetter({ ...letter, sendDate: new Date() })
+        let timeToArrive = new Date();
+        timeToArrive.setHours(timeToArrive.getHours() + props.timeToArrive.hours);
+        timeToArrive.setMinutes(timeToArrive.getMinutes() + props.timeToArrive.minutes);
+
+        setLetter({ ...letter, sendDate: new Date(), arrivalDate: timeToArrive })
     }
 
     useEffect(() => {
         props.message(letter)
 
-    }, [letter.sendDate])
+    }, [letter.arrivalDate])
 
     return (
         <React.Fragment>

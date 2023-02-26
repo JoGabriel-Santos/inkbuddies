@@ -146,6 +146,7 @@ function Friends() {
                             sender: userLogged.result.name
                         }
                     }
+                    timeToArrive={penpalDistance}
                     message={handleMessageSend}/>
 
                 <div className="container grid grid--3-cols margin-bottom-md">
