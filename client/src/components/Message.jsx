@@ -7,7 +7,7 @@ function Message(props) {
 
     useEffect(() => {
         const currentDate = new Date();
-        const messageSentDate = new Date(props.message.date);
+        const messageSentDate = new Date(props.message.sendDate);
 
         let difference = currentDate.getTime() - messageSentDate.getTime();
         let differenceInHours = difference / (1000 * 60 * 60);
