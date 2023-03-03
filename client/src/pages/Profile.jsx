@@ -50,44 +50,21 @@ function Profile() {
     };
 
     const handleChangeBirthday = (event) => {
-        setUserInfo({ ...userInfo, birthday: event.target.value })
-
-        let ordinal = '';
-
         const date = event.target.value;
-        const dateArray = date.split("-").map(value => parseInt(value, 10));
+        const [year, month, day] = date.split("-").map(str => parseInt(str, 10));
 
-        const birthdate = new Date(dateArray[1].toString() + "/" + dateArray[2].toString() + "/" + dateArray[0].toString());
+        const birthdate = new Date(Date.UTC(year, month - 1, day));
         const today = new Date();
-        let age = today.getFullYear() - birthdate.getFullYear();
 
-        if (today.getMonth() < birthdate.getMonth() || (today.getMonth() === birthdate.getMonth() && today.getDate() < birthdate.getDate())) {
-            age--;
-        }
-
-        switch (dateArray[2]) {
-            case 1:
-                ordinal = 'st';
-                break;
-
-            case 2:
-                ordinal = 'nd';
-                break;
-
-            case 3:
-                ordinal = 'rd';
-                break;
-
-            default:
-                ordinal = 'th';
-                break;
-        }
-
-        if (age < 0) {
+        let age = Math.floor((today - birthdate) / (365.25 * 24 * 60 * 60 * 1000));
+        if (isNaN(age) || age < 0) {
             age = 0;
         }
 
-        setUserBirthday({ year: dateArray[0], month: dateArray[1], day: dateArray[2], ordinal: ordinal, age: age })
+        const ordinals = ['th', 'st', 'nd', 'rd'];
+        const ordinal = ordinals[(day % 100 > 10 && day % 100 < 14) ? 0 : Math.min(day % 10, 3)];
+
+        setUserBirthday({ year, month, day, ordinal, age });
     }
 
     const handleChangeCountry = (userCountry, userLatLong) => {
