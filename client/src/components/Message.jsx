@@ -9,35 +9,15 @@ function Message(props) {
         const currentDate = new Date();
         const messageSentDate = new Date(props.message.sendDate);
 
-        let difference = currentDate.getTime() - messageSentDate.getTime();
-        let differenceInHours = difference / (1000 * 60 * 60);
+        const difference = currentDate.getTime() - messageSentDate.getTime();
+        const differenceInHours = difference / (1000 * 60 * 60);
+        const differenceInDays = Math.floor(difference / (1000 * 60 * 60 * 24));
 
-        if (differenceInHours >= 24) {
-            let differenceInDays = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const sendDate =
+            differenceInDays >= 1 ? `${differenceInDays} day${differenceInDays === 1 ? "" : "s"}` :
+                differenceInHours >= 1 ? `${Math.floor(differenceInHours)} hour${differenceInHours === 1 ? "" : "s"}` : "just now";
 
-            if (differenceInDays <= 1) {
-                differenceInDays = Math.floor(differenceInDays);
-                differenceInDays.toString();
-                setSendDate(differenceInDays + " day");
-
-            } else {
-                differenceInDays = Math.floor(differenceInDays);
-                differenceInDays.toString();
-                setSendDate(differenceInDays + " days");
-            }
-
-        } else {
-            if (differenceInHours <= 1) {
-                differenceInHours = Math.floor(differenceInHours);
-                differenceInHours.toString();
-                setSendDate(differenceInHours + " hour");
-
-            } else {
-                differenceInHours = Math.floor(differenceInHours);
-                differenceInHours.toString();
-                setSendDate(differenceInHours + " hours");
-            }
-        }
+        setSendDate(messageSentDate.toLocaleString() + " (" + sendDate + ")");
     })
 
     return (
@@ -65,7 +45,7 @@ function Message(props) {
                     props.message.sender === userLogged.result.name ? <h2>Me</h2> : <h2>{props.message.sender}</h2>
                 }
 
-                <p>{sendDate} ago</p>
+                <p>{sendDate}</p>
             </div>
         </div>
     );
