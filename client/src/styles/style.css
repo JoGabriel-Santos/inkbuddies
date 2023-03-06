@@ -334,6 +334,13 @@
     padding-bottom: 5px;
 }
 
+.friend--name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 96%;
+}
+
 .additional-info {
     align-items: center;
     display: flex;

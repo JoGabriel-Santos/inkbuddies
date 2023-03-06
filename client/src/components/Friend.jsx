@@ -40,8 +40,8 @@ function Friend(props) {
 
                         <div className="friend-card--user">
                             <div className="friend-card--info">
-                                <h2>{penpal.name}</h2>
-                                <p>{penpal.country}</p>
+                                <h2 className="friend--name">{penpal.name}</h2>
+                                <p className="friend--count">{penpal.country}</p>
                             </div>
 
                             <div className="friend-card--time">
