@@ -152,7 +152,7 @@ function Friends() {
                 <div className="container grid grid--3-cols margin-bottom-md">
                     {
                         showMessages?.map((message, key) => (
-                            <Message message={message} key={key}/>
+                            <Message message={message} timeToArrive={penpalDistance?.hours} key={key}/>
                         ))
                     }
                 </div>

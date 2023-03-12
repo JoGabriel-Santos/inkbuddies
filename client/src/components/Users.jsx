@@ -21,6 +21,7 @@ function Users(props) {
                 <div className="user-content">
                     <p className="user-username">{props.userInfo.name}</p>
                     <p className="user-attribute">{props.userInfo.gender}</p>
+                    <p className="user-about">{props.userInfo.aboutMe}</p>
                 </div>
             </div>
         </div>

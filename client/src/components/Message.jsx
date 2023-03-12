@@ -4,20 +4,23 @@ function Message(props) {
 
     const userLogged = JSON.parse(localStorage.getItem("profile"));
     const [sendDate, setSendDate] = useState();
+    const [showMessage, setShowMessage] = useState(false);
 
     useEffect(() => {
         const currentDate = new Date();
-        const messageSentDate = new Date(props.message.sendDate);
+        const arrivalDate = new Date(props.message.arrivalDate);
 
-        const difference = currentDate.getTime() - messageSentDate.getTime();
+        const difference = currentDate.getTime() - arrivalDate.getTime();
         const differenceInHours = difference / (1000 * 60 * 60);
         const differenceInDays = Math.floor(difference / (1000 * 60 * 60 * 24));
 
         const sendDate =
             differenceInDays >= 1 ? `${differenceInDays} day${differenceInDays === 1 ? "" : "s"}` :
-                differenceInHours >= 1 ? `${Math.floor(differenceInHours)} hour${differenceInHours === 1 ? "" : "s"}` : "just now";
+                differenceInHours >= 1 ? `${Math.floor(differenceInHours)} hour${differenceInHours === 1 ? "" : "s"} ago` : "just now";
 
-        setSendDate(messageSentDate.toLocaleString() + " (" + sendDate + ")");
+        setSendDate(arrivalDate.toLocaleString() + " (" + sendDate + ")");
+
+        setShowMessage(currentDate >= arrivalDate)
     })
 
     return (
@@ -36,7 +39,9 @@ function Message(props) {
 
             <div className="message-content">
                 <p className="content">
-                    {props.message.message}
+                    {
+                        showMessage ? props.message.message : "message has not arrived yet..."
+                    }
                 </p>
             </div>
 
@@ -45,7 +50,11 @@ function Message(props) {
                     props.message.sender === userLogged.result.name ? <h2>Me</h2> : <h2>{props.message.sender}</h2>
                 }
 
-                <p>{sendDate}</p>
+                <p>
+                    {
+                        showMessage ? sendDate : `arrives in ${props.timeToArrive} hours`
+                    }
+                </p>
             </div>
         </div>
     );
