@@ -11,7 +11,7 @@ function Home() {
     const dispatch = useDispatch();
 
     const userLogged = JSON.parse(localStorage.getItem("profile"));
-    const {users} = useSelector((state) => state.users);
+    const { users } = useSelector((state) => state.users);
 
     let allUsers = null;
 
