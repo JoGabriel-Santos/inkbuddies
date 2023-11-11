@@ -1,4 +1,4 @@
-import PenpalModal from "../models/penpal.js";
+import PenpalModal from "../../models/penpal.js";
 
 export const fetchPenpals = async (require, response) => {
     const { id } = require.params;

@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 import { ObjectId } from "mongodb";
 
-import UserModal from "../models/user.js";
+import UserModal from "../../models/user.js";
 
 const secret = "secret";
 

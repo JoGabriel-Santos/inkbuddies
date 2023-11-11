@@ -1,4 +1,4 @@
-import { createPenpal, fetchPenpals, sendLetter } from "../controllers/penpal.js";
+import { createPenpal, fetchPenpals, sendLetter } from "../controller/penpalController.js";
 
 import router from "./user.js";
 
