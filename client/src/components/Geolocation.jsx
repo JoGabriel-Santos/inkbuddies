@@ -14,7 +14,7 @@ function Geolocation(props) {
             (position) => {
                 const { latitude, longitude } = position.coords;
 
-                fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=2c8cb4121cf7442e8534188b5b142be6`)
+                fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=1dfcf2247b0647e8ad1241226a5f26d6`)
                     .then(response => response.json())
                     .then(data => {
                         setCountry(data.results[0].components.country);
