@@ -245,18 +245,26 @@
     list-style: none;
 }
 
+.user-details {
+    display: flex;
+    justify-content: space-between;
+}
+
 .user-attribute {
     align-items: center;
+    color: #333;
     display: flex;
     font-size: 1.8rem;
     margin-bottom: 1.8rem;
 }
 
 .user-about {
-    align-items: center;
-    display: flex;
+    display: -webkit-box;
     font-size: 1.8rem;
     line-height: 1.1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }
 
 /* ----- Friends ----- */

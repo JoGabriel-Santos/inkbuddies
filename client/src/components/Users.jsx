@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { createPenpal } from "../actions/penpal";
 
-function Users(props) {
+function Users({ userInfo }) {
     const dispatch = useDispatch();
 
     const userLogged = JSON.parse(localStorage.getItem("profile"));
@@ -10,18 +10,26 @@ function Users(props) {
     const handleClickUser = (event) => {
         event.preventDefault();
 
-        dispatch(createPenpal({ penpal_1: userLogged.result._id, penpal_2: props.userInfo._id }));
+        dispatch(createPenpal({ penpal_1: userLogged.result._id, penpal_2: userInfo._id }));
     };
+
+    console.log(userInfo)
 
     return (
         <div className="users" onClick={(event) => handleClickUser(event)}>
             <div className="user-info">
-                <img className="user-image" src={props.userInfo.profilePicture} alt=""/>
+                <img className="user-image" src={userInfo.profilePicture} alt=""/>
 
                 <div className="user-content">
-                    <p className="user-username">{props.userInfo.name}</p>
-                    <p className="user-attribute">{props.userInfo.gender}</p>
-                    <p className="user-about">{props.userInfo.aboutMe}</p>
+                    <p className="user-username">{userInfo.name}</p>
+
+                    <div className="user-details">
+                        <p className="user-attribute">{userInfo.country}</p>
+                        <p className="user-attribute">{userInfo.gender}</p>
+                        <p className="user-attribute">{userInfo.birthday}</p>
+                    </div>
+
+                    <p className="user-about">{userInfo.aboutMe}</p>
                 </div>
             </div>
         </div>
